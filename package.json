@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "server": "vite build && npx serve -p 3000""lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "server": "vite build && npx serve -p 3000",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
