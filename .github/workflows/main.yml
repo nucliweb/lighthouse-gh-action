@@ -5,13 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Build
         run: |
-          npm ci 
-          npm run build
-          npm run production
+          npm install
+          npm run server
+
       - name: Run Lighthouse on urls and validate with lighthouserc
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: "http://localhost:3000"
           configPath: "./lighthouserc.json"
+          temporaryPublicStorage: true

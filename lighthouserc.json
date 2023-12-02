@@ -1,8 +1,5 @@
 {
   "ci": {
-    "collect": {
-      "staticDistDir": "./dist"
-    },
     "assert": {
       "assertions": {
         "first-contentful-paint": [
