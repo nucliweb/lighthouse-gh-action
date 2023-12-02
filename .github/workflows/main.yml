@@ -1,19 +1,19 @@
 name: Lighthouse
-on: [push]
+on: push
 jobs:
-  lhci:
-    name: CI
+  lighthouse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
       - name: Build
         run: |
           npm install
-          npm run build
-      - name: Test dist/
-        uses: treosh/lighthouse-ci-action@v2
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{secrets.LHCI_GITHUB_APP_TOKEN}}
+          npm run server
+
+      - name: Run Lighthouse on urls and validate with lighthouserc
+        uses: treosh/lighthouse-ci-action@v10
         with:
-          configPath: './lighthouserc.json'
+          urls: "http://localhost:3000"
+          configPath: "./lighthouserc.json"
           temporaryPublicStorage: true
